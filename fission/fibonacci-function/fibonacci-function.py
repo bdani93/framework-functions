@@ -1,4 +1,7 @@
 from flask import request
+from flask import current_app
+import logging
+import datetime
 
 def Fibonacci(n):
     a = 0
@@ -19,6 +22,11 @@ def Fibonacci(n):
         return str(eredmeny)
 
 def main():
+    start_time = datetime.datetime.now()
+    current_app.logger.info('Invoke Started at: ' + str(start_time.time()))
     n = int(request.args.get('num'))
     ered = Fibonacci(n)
+    finish_time = datetime.datetime.now()
+    current_app.logger.info('Invoke Finished at: ' + str(finish_time.time()))
+    current_app.logger.info('Invoke Duration: ' + str(finish_time-start_time))
     return ered
