@@ -7,4 +7,5 @@ functions:
     lang: python3
     handler: ./fibonacci-function
     image: bdani93/fibonacci-function:latest
-
+    environment:
+      combine_output: false
