@@ -25,12 +25,9 @@ def main():
     logging.basicConfig(filename='measure.log',level=logging.DEBUG)
     start_time = datetime.datetime.now()
     current_app.logger.info('Invoke Started at: ' + str(start_time.time()))
-    #logging.info('Invoke Started at: ' + str(start_time.time()))
     n = int(request.args.get('num'))
     ered = Fibonacci(n)
     finish_time = datetime.datetime.now()
     current_app.logger.info('Invoke Finished at: ' + str(finish_time.time()))
-    #logging.info('Invoke Finished at: ' + str(finish_time.time()))
     current_app.logger.info('Invoke Duration: ' + str(finish_time-start_time))
-    #logging.info('Invoke Duration: ' + str(finish_time-start_time))
     return ered
