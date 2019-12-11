@@ -7,4 +7,6 @@ functions:
     lang: python3
     handler: ./hello-function
     image: bdani93/hello-function:latest
+    environment:
+      combine_output: false
 
