@@ -10,5 +10,5 @@ def handle(req):
     logging.info('Invoke Started at: ' + str(start_time.time()))
     finish_time = datetime.datetime.now()
     logging.info('Invoke Finished at: ' + str(finish_time.time()))
-    logging.info('Invoke Duration: ' + str(finish_time - start_time))
+    logging.info('Invoke Duration: ' + str((finish_time - start_time).microseconds))
     print("Hello Openfaas!")

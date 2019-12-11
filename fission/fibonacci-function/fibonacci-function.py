@@ -29,5 +29,5 @@ def main():
     ered = Fibonacci(n)
     finish_time = datetime.datetime.now()
     current_app.logger.info('Invoke Finished at: ' + str(finish_time.time()))
-    current_app.logger.info('Invoke Duration: ' + str(finish_time-start_time))
+    current_app.logger.info('Invoke Duration: ' + str((finish_time - start_time).microseconds))
     return ered

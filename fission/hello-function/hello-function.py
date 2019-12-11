@@ -8,5 +8,5 @@ def main():
     finish_time = datetime.datetime.now()
     current_app.logger.info('Invoke Started at: ' + str(start_time.time()))
     current_app.logger.info('Invoke Finished at: ' + str(finish_time.time()))
-    current_app.logger.info('Invoke Duration: ' + str(finish_time-start_time))
+    current_app.logger.info('Invoke Duration: ' + str((finish_time - start_time).microseconds))
     return "Hello, Fission!\n"

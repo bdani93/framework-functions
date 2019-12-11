@@ -25,6 +25,6 @@ def handle(req):
         eredmeny = b
         finish_time = datetime.datetime.now()
         logging.info('Invoke Finished at: ' + str(finish_time.time()))
-        logging.info('Invoke Duration: ' + str(finish_time - start_time))
+        logging.info('Invoke Duration: ' + str((finish_time - start_time).microseconds))
         return (str(eredmeny))
 
