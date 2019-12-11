@@ -19,11 +19,12 @@ def read(destfile):
 
 def handle(req):
     logging.basicConfig(filename='measure.log',level=logging.DEBUG)
+    logging.StreamHandler(sys.stderr)
     start_time = datetime.datetime.now()
-    current_app.logger.info('Invoke Started at: ' + str(start_time.time()))
+    logging.info('Invoke Started at: ' + str(start_time.time()))
     current_dir = os.path.dirname(__file__)
-    srcfile= str(req, 'utf-8')
-    destfile = "out.txt"
+    srcfile = str(request.args.get('src'))
+    destfile = str(request.args.get('dest'))
     copy(os.path.join(current_dir, srcfile), os.path.join(current_dir, destfile))
     ered = read(os.path.join(current_dir, destfile))
     finish_time = datetime.datetime.now()
