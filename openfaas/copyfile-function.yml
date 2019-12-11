@@ -7,4 +7,6 @@ functions:
     lang: python3-flask
     handler: ./copyfile-function
     image: bdani93/copyfile-function:latest
+    environment:
+      combine_output: false
 
