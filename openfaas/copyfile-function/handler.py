@@ -17,6 +17,7 @@ def read(destfile):
     with open(destfile) as destination:
         return destination.read()
 
+
 def handle(req):
     logging.basicConfig(filename='measure.log',level=logging.DEBUG)
     start_time = datetime.datetime.now()
