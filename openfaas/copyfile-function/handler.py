@@ -2,9 +2,7 @@ from flask import request
 from flask import current_app
 import logging
 import datetime
-import sys
 import os
-import curses
 
 logging.basicConfig(level=logging.INFO)
 
@@ -24,11 +22,11 @@ def handle(req):
     start_time = datetime.datetime.now()
     logging.info('Invoke Started at: ' + str(start_time.time()))
     current_dir = os.path.dirname(__file__)
-    srcfile = str(req)
-    destfile = "out.txt"
+    srcfile = str(request.args.get('src'))
+    destfile = str(request.args.get('dest'))
     copy(os.path.join(current_dir, srcfile), os.path.join(current_dir, destfile))
     ered = read(os.path.join(current_dir, destfile))
     finish_time = datetime.datetime.now()
-    logging.info('Invoke Finished at: ' + str(finish_time.time()))
-    logging.info('Invoke Duration: ' + str(finish_time-start_time))
+    current_app.logger.info('Invoke Finished at: ' + str(finish_time.time()))
+    current_app.logger.info('Invoke Duration: ' + str(finish_time-start_time))
     return ered
