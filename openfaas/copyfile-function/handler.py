@@ -1,3 +1,5 @@
+from flask import request
+from flask import current_app
 import logging
 import datetime
 import sys
